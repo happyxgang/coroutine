@@ -5,7 +5,9 @@ typedef void (*PFunc)(void);
 
 
 struct MContext {
-	void* reg[8];
+	void* eip;
+	void* esp;
+	void* ebp;
 	char stack_base[1024*10];
 };
 

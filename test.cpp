@@ -13,7 +13,7 @@ void foo(){
 int main(){
   MCoroutine* co = NULL;
   co_create(&co, &foo);
-  printf("in main 0");
+  printf("in main 0\n");
   co_resume(co);
   printf("in main 1\n");
   co_resume(co);

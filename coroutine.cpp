@@ -12,7 +12,7 @@ void init_env();
 
 void init_context(MContext* cxt) {
 	memset(cxt, 0, sizeof(*cxt));
-  cxt->reg[1] = (void*)((unsigned long)(cxt->stack_base+sizeof(cxt->stack_base)) & -16L);
+  cxt->esp = (void*)((unsigned long)(cxt->stack_base+sizeof(cxt->stack_base)) & -16L);
 }
 
 void co_create(MCoroutine** co, PFunc func) {
@@ -21,7 +21,7 @@ void co_create(MCoroutine** co, PFunc func) {
 	memset(coroutine, 0, sizeof(MCoroutine));
 
 	init_context(&coroutine->cxt);
-  coroutine->cxt.reg[0]=(void*)func;
+  coroutine->cxt.eip = (void*)func;
 
 	*co = coroutine;
 }
