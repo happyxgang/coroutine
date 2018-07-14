@@ -6,7 +6,6 @@ typedef void (*PFunc)(void);
 
 struct MContext {
 	void* reg[8];
-	//size_t stack_size;
 	char stack_base[1024*10];
 };
 
@@ -15,12 +14,7 @@ void make_context(MContext* cxt, void* p1, void* p2);
 
 struct MCoroutine{
 	MContext cxt;
-	//PFunc func;
-	int started;
 	MCoroutine() {
-		started = 1;
-		//func = NULL;
-		//param = 0;
 		init_context(&cxt);
 	}
 };
