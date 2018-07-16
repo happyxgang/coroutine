@@ -8,6 +8,9 @@ struct MContext {
 	void* eip;
 	void* esp;
 	void* ebp;
+  void* esi;
+  void* edi;
+  void* ebx;
 	char stack_base[1024*10];
 };
 
